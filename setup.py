@@ -15,19 +15,19 @@ import json
 # ░░░░░░░░░░░░░░░░░░░░░▓▓▓░░░░░░░░░░░░░░░░░░░░░░
 
 class NotifierConfig(Enum):
-    NAME = 'simbashlog-example-notifier'                # TODO: Replace with the name of your notifier but keep the prefix 'simbashlog-' and the suffix '-notifier'
-    VERSION = '1.0.0'                                   # TODO: Replace with the version of your notifier
-    DESCRIPTION = 'simbashlog-notifier for example'     # TODO: Replace with the description of your notifier
-    AUTHOR = 'Fabian Fuchs'                             # TODO: Replace with your name
-    PYTHON_VERSION = '>=3.10'                           # TODO: Replace with the required Python version of your notifier
-    REPOSITORY_PYTHON_SUBDIRECTORY_NAME = 'example'     # TODO: Replace with the name of the subdirectory in the repository where the Python code of your notifier is located
-    KEYWORDS = [                                        # TODO: Replace with the keywords of your notifier, at least add the notify type
+    NAME = 'simbashlog-example-notifier'                                    # TODO: Replace with the name of your notifier but keep the prefix 'simbashlog-' and the suffix '-notifier'
+    VERSION = '1.0.0'                                                       # TODO: Replace with the version of your notifier
+    DESCRIPTION = 'simbashlog-notifier for example'                         # TODO: Replace with the description of your notifier
+    AUTHOR = 'Fabian Fuchs'                                                 # TODO: Replace with your name
+    PYTHON_VERSION = '>=3.10'                                               # TODO: Replace with the required Python version of your notifier
+    URL = 'https://github.com/fuchs-fabian/simbashlog-example-notifier'     # TODO: Replace with the repository URL of your notifier
+    KEYWORDS = [                                                            # TODO: Replace with the keywords of your notifier, at least add the notify type
         'example',
     ]
-    INSTALL_REQUIRES = [                                # TODO: Add the required packages for your notifier that are not per default installed
+    INSTALL_REQUIRES = [                                                    # TODO: Add the required packages for your notifier that are not per default installed
     ]
-    NOTIFY_HELPER_VERSION = '1.6.1'                     # TODO: Replace with the version of the simbashlog-notify-helper package that your notifier requires
-    CONFIG_FILE_KEY_REPLACEMENTS = {                    # TODO: Add key replacements for the configuration file if you have changed the keys in a new version. It is kind of a migration for the configuration file
+    NOTIFY_HELPER_VERSION = '1.6.1'                                         # TODO: Replace with the version of the simbashlog-notify-helper package that your notifier requires
+    CONFIG_FILE_KEY_REPLACEMENTS = {                                        # TODO: Add key replacements for the configuration file if you have changed the keys in a new version. It is kind of a migration for the configuration file
         #'old_config_file_key': 'new_config_file_key',
     }
 
@@ -107,9 +107,10 @@ setup(
     description=NotifierConfig.DESCRIPTION.value,
     author=NotifierConfig.AUTHOR.value,
     license='GPL-3.0-or-later',
-    url=f'https://github.com/fuchs-fabian/simbashlog-notifiers/tree/main/src/python/{NotifierConfig.REPOSITORY_PYTHON_SUBDIRECTORY_NAME.value}',
+    url=NotifierConfig.URL.value,
     keywords=[
         'simbashlog',
+        'logging-framework',
         'notify',
         'notifier',
         *NotifierConfig.KEYWORDS.value
