@@ -2,25 +2,15 @@
 
 <!-- Description -->
 
-This is a kind of template for creating a notifier for `simbashlog`.
+This is a template for creating a notifier for `simbashlog`.
 
 ## Installation
 
 <!-- Installation with `pip` (GitHub) -->
 
 ```bash
-pip install git+https://github.com/fuchs-fabian/simbashlog-notify-helper-py.git#subdirectory=template
+pip install git+https://github.com/fuchs-fabian/simbashlog-example-notifier
 ```
-
-<!--
-If the repository is `simbashlog-notifiers`, the following will be used: 
-
-```bash
-pip install git+https://github.com/fuchs-fabian/simbashlog-notifiers.git#subdirectory=src/python/<your subdirectory name>
-```
-
-<your subdirectory name> is the same as the name in `REPOSITORY_PYTHON_SUBDIRECTORY_NAME`.
--->
 
 ## Configuration
 
