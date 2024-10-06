@@ -16,7 +16,7 @@ import json
 
 class NotifierConfig(Enum):
     NAME = 'simbashlog-example-notifier'                                    # TODO: Replace with the name of your notifier but keep the prefix 'simbashlog-' and the suffix '-notifier'
-    VERSION = '1.0.1'                                                       # TODO: Replace with the version of your notifier
+    VERSION = '1.0.0'                                                       # TODO: Replace with the version of your notifier
     DESCRIPTION = 'simbashlog-notifier for example'                         # TODO: Replace with the description of your notifier
     AUTHOR = 'Fabian Fuchs'                                                 # TODO: Replace with your name
     PYTHON_VERSION = '>=3.10'                                               # TODO: Replace with the required Python version of your notifier
