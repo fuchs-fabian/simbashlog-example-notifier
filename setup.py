@@ -36,7 +36,7 @@ class NotifierConfig(Enum):
         # TODO: Define the default configuration values for your notifier. Replace the keys and values with the ones that are required for your notifier. This will be used to create later the json configuration file.
         return {
             # General
-            'min_required_log_level': '6',                  # 0-7
+            'min_required_log_level': '4',                  # 0-7
             'show_in_console_sent_message': 'true',         # or 'false'
             # Header
             'show_in_header_pid': 'false',                  # or 'true'
