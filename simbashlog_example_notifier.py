@@ -178,6 +178,9 @@ def filter_log_data_by_min_required_log_level(config: snh.NotifierConfig, stored
     if min_required_log_level == 0:
         return
 
+    # TODO: Remove this line
+    print(stored_log_info)
+
     initial_count = len(stored_log_info.data_df)
 
     stored_log_info.data_df.drop(
