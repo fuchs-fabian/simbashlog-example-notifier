@@ -202,11 +202,11 @@ def filter_log_data_by_min_required_log_level(config: snh.NotifierConfig, stored
 
     notice_count = len(notice_df)
 
-    print("len:" + notice_count)
+    print("len:" + str(notice_count))
 
     notice_shape_count = notice_df.shape[0]
 
-    print("shape:" + notice_shape_count)
+    print("shape:" + str(notice_shape_count))
     # TODO: ^^^^^^^
 
     final_count = len(stored_log_info.data_df)
