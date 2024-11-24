@@ -26,7 +26,7 @@ class NotifierConfig(Enum):
     ]
     INSTALL_REQUIRES = [                                                    # TODO: Add the required packages for your notifier that are not per default installed
     ]
-    NOTIFY_HELPER_VERSION = '1.6.1'                                         # TODO: Replace with the version of the simbashlog-notify-helper package that your notifier requires
+    NOTIFY_HELPER_VERSION = '1.6.2'                                         # TODO: Replace with the version of the simbashlog-notify-helper package that your notifier requires
     CONFIG_FILE_KEY_REPLACEMENTS = {                                        # TODO: Add key replacements for the configuration file if you have changed the keys in a new version. It is kind of a migration for the configuration file
         #'old_config_file_key': 'new_config_file_key',
     }
@@ -36,12 +36,12 @@ class NotifierConfig(Enum):
         # TODO: Define the default configuration values for your notifier. Replace the keys and values with the ones that are required for your notifier. This will be used to create later the json configuration file.
         return {
             # General
-            'min_required_log_level': '6',                  # 0-7
+            'min_required_log_level': '4',                  # 0-7
             'show_in_console_sent_message': 'true',         # or 'false'
             # Header
             'show_in_header_pid': 'false',                  # or 'true'
             # Body
-            'show_in_body_log_file_result': 'false',        # or 'true'
+            'show_in_body_log_file_result': 'true',         # or 'false'
             'show_in_body_log_file_content': 'false',       # or 'true'
             'show_in_body_summary_for_pid': 'false',        # or 'true'
             'show_in_body_summary_for_log_file': 'false',   # or 'true'
