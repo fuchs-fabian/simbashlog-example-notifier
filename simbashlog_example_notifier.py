@@ -105,7 +105,7 @@ def load_config() -> snh.NotifierConfig:
     )
 
 def get_min_required_log_level(config: snh.NotifierConfig) -> int:
-    # TODO: Remove the logic below and return 0 if nothing should be filtered
+    # TODO: Remove the logic below and return 7 if nothing should be filtered
     if config.min_required_log_level is not None:
         min_required_log_level = int(config.min_required_log_level)
         
@@ -115,7 +115,7 @@ def get_min_required_log_level(config: snh.NotifierConfig) -> int:
 
         return min_required_log_level
 
-    return 0
+    return 7
 
 def create_message(config: snh.NotifierConfig, stored_log_info: snh.StoredLogInfo) -> str:
     builder = snh.MessageBuilder(
@@ -175,7 +175,7 @@ def notify(config: snh.NotifierConfig, stored_log_info: snh.StoredLogInfo):
 def filter_log_data_by_min_required_log_level(config: snh.NotifierConfig, stored_log_info: snh.StoredLogInfo) -> None:
     min_required_log_level = get_min_required_log_level(config)
 
-    if min_required_log_level == 0:
+    if min_required_log_level == 7:
         return
 
     # TODO: Remove this line
@@ -194,10 +194,19 @@ def filter_log_data_by_min_required_log_level(config: snh.NotifierConfig, stored
 
     stored_log_info.data_df.drop(columns=[snh.DataFrameField.SEVERITY_CODE.value], inplace=True)
 
+    final_count = len(stored_log_info.data_df)
+
+    # Set summary to 0 if the severity is greater than the minimum required log level
+    for column in stored_log_info.summary_df.columns:
+        try:
+            severity_code = snh.Severity.get_by_name(column).rfc_5424_numerical_code
+            if severity_code > min_required_log_level:
+                stored_log_info.summary_df[column] = 0
+        except AttributeError:
+            continue
+
     # TODO: Remove this line
     print(stored_log_info)
-
-    final_count = len(stored_log_info.data_df)
 
     if initial_count != final_count:
         print(f"Removed {initial_count - final_count} log entries with severity greater than {min_required_log_level} (Original count: {initial_count} | Final count: {final_count})")
