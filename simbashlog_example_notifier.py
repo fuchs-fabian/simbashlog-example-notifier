@@ -206,7 +206,7 @@ def filter_log_data_by_min_required_log_level(config: snh.NotifierConfig, stored
             continue
 
     if initial_count != final_count:
-        print(f"Removed {initial_count - final_count} log entries with severity greater than {min_required_log_level} (Original count: {initial_count} | Final count: {final_count})")
+        print(f"Ignored {initial_count - final_count} log entries with severity greater than {min_required_log_level} (Original count: {initial_count} | Final count: {final_count})")
 
 @snh.unexpected_exception_handler
 def main():
