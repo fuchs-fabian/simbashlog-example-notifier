@@ -199,6 +199,9 @@ def filter_log_data_by_min_required_log_level(config: snh.NotifierConfig, stored
     # Set summary to 0 if the severity is greater than the minimum required log level
     for column in stored_log_info.summary_df.columns:
         try:
+            if column == snh.DataFrameField.PID.value:
+                continue
+
             severity_code = snh.Severity.get_by_name(column).rfc_5424_numerical_code
             if severity_code > min_required_log_level:
                 stored_log_info.summary_df[column] = 0
