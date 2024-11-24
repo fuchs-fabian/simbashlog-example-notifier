@@ -41,7 +41,7 @@ class NotifierConfig(Enum):
             # Header
             'show_in_header_pid': 'false',                  # or 'true'
             # Body
-            'show_in_body_log_file_result': 'false',        # or 'true'
+            'show_in_body_log_file_result': 'true',         # or 'false'
             'show_in_body_log_file_content': 'false',       # or 'true'
             'show_in_body_summary_for_pid': 'false',        # or 'true'
             'show_in_body_summary_for_log_file': 'false',   # or 'true'
