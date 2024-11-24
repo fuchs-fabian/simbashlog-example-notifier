@@ -183,10 +183,19 @@ def filter_log_data_by_min_required_log_level(config: snh.NotifierConfig, stored
 
     initial_count = len(stored_log_info.data_df)
 
+    stored_log_info.data_df[snh.DataFrameField.SEVERITY_CODE.value] = stored_log_info.data_df[snh.LogField.LEVEL.value].apply(
+        lambda level_name: snh.Severity.get_by_name(level_name).rfc_5424_numerical_code
+    )
+
     stored_log_info.data_df.drop(
         stored_log_info.data_df[stored_log_info.data_df[snh.DataFrameField.SEVERITY_CODE.value] > min_required_log_level].index,
         inplace=True
     )
+
+    stored_log_info.data_df.drop(columns=[snh.DataFrameField.SEVERITY_CODE.value], inplace=True)
+
+    # TODO: Remove this line
+    print(stored_log_info)
 
     final_count = len(stored_log_info.data_df)
 
