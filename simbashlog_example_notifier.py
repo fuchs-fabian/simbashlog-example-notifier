@@ -194,6 +194,21 @@ def filter_log_data_by_min_required_log_level(config: snh.NotifierConfig, stored
 
     stored_log_info.data_df.drop(columns=[snh.DataFrameField.SEVERITY_CODE.value], inplace=True)
 
+    # TODO: Remove
+    notice_df = stored_log_info.data_df[stored_log_info.data_df[snh.LogField.LEVEL.value] == snh.Severity.NOTICE.name]
+
+    print("notice df:")
+    print(notice_df)
+
+    notice_count = len(notice_df)
+
+    print("len:" + notice_count)
+
+    notice_shape_count = notice_df.shape[0]
+
+    print("shape:" + notice_shape_count)
+    # TODO: ^^^^^^^
+
     final_count = len(stored_log_info.data_df)
 
     # Set summary to 0 if the severity is greater than the minimum required log level
