@@ -26,7 +26,7 @@ class NotifierConfig(Enum):
     ]
     INSTALL_REQUIRES = [                                                    # TODO: Add the required packages for your notifier that are not per default installed
     ]
-    NOTIFY_HELPER_VERSION = '1.6.1'                                         # TODO: Replace with the version of the simbashlog-notify-helper package that your notifier requires
+    NOTIFY_HELPER_VERSION = '1.6.2'                                         # TODO: Replace with the version of the simbashlog-notify-helper package that your notifier requires
     CONFIG_FILE_KEY_REPLACEMENTS = {                                        # TODO: Add key replacements for the configuration file if you have changed the keys in a new version. It is kind of a migration for the configuration file
         #'old_config_file_key': 'new_config_file_key',
     }
